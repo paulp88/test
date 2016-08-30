@@ -29,3 +29,6 @@ module.exports.create=(userId, word)=>{
 }
 
 module.exports.get=(id)=>games.find(g=>g.id===parseInt(id,10));
+
+module.exports.createdBy = (userId) => games.filter(game => game.setBy === userId);
+module.exports.availableTo =(userId) => games.filter(game => game.setBy !== userId);

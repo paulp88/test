@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var games = require('../services/games');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -11,11 +12,13 @@ router.get('/', function(req, res, next) {
   res.cookie('visits', visits);
   res.cookie('NameP', name);
   res.render('index',
-            { title: 'Express', 
+            { title: 'Hangman', 
               name: 'World', 
               visits: visits,
               myName: name,
-              userIdN: userId 
+              userIdN: userId,
+              createdGames: games.createdBy(userId),
+              availableGames: games.availableTo(userId)
             }
             );
 });
