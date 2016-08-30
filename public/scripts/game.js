@@ -5,7 +5,7 @@ $(function() {
     // Create placeholders for each letter
     for (var i = 0; i < length; ++i) 
     {
-        word.append('<span>_</span>');
+        word.append('<span> _ </span>');
     }
     
     var guessedLetters = [];
@@ -19,7 +19,7 @@ $(function() {
                 });
             } else 
             {
-                $('#missedLetters').append('<span>' + letter + '</span>');
+                $('#missedLetters').append('<span>' +' '+ letter + ' '+ '</span>');
             }
         });
     }
