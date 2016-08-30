@@ -7,6 +7,12 @@
   <body>
     <h1>Hello, {{ myName }}!</h1>
     <p>Welcome to {{ title }}</p>
+    <p>Your user ID is {{ userIdN }} </p>
     <p>You have visited this site {{visits}} time(s).</p>
+
+    <form action="/games" method="POST">
+    <input type="text" name="word" placeholder="Enter a word to guess..." />
+    <input type="submit" value="Submit"/>
+    </form>
   </body>
 </html>

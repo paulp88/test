@@ -5,6 +5,8 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   var visits = parseInt(req.cookies.visits) || 0;
   var name = req.cookies.NameP || "Paul";
+  var userId=req.agent.id;
+  
   visits += 1;
   res.cookie('visits', visits);
   res.cookie('NameP', name);
@@ -12,7 +14,8 @@ router.get('/', function(req, res, next) {
             { title: 'Express', 
               name: 'World', 
               visits: visits,
-              myName: name 
+              myName: name,
+              userIdN: userId 
             }
             );
 });
