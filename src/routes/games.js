@@ -39,7 +39,10 @@ router.post('/:id/guesses', function(req, res, next) {
     checkGameExists(
         req.params.id,
         res,
-        game => {res.send({positions: game.positionsOf(req.body.letter)});}
+        game => {res.send(
+            {
+                positions: game.positionsOf(req.body.letter)
+            });}
     );
 });
 

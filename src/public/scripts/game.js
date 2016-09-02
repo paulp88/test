@@ -1,3 +1,5 @@
+var countsMissed=5;
+
 $(function() {
     'use strict';
     var word = $('#word');
@@ -19,6 +21,12 @@ $(function() {
                 });
             } else 
             {
+                countsMissed--;
+                if(countsMissed<=0){
+                    console.log(countsMissed);
+                    alert("Ai pierdut!");
+                }
+                   
                 $('#missedLetters').append('<span>' +' '+ letter + ' '+ '</span>');
             }
         });
