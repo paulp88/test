@@ -15,7 +15,7 @@ describe('Users middleware', () => {
 
         it('if the user already signed in, reads their ID from a cookie and exposes the user on the request', () => {
             // Given
-            request.cookies.agentId = defaultUserId;
+            request.cookies.userId = defaultUserId;
             //request.cookie('userId', defaultUserId);
             
             // When
@@ -29,7 +29,8 @@ describe('Users middleware', () => {
             // Given
            const next = sinon.spy();
             // When
-            middleware(request, {}, next);
+            
+            middleware(request, response, next);
             // Then
             expect(next.called).to.be.true;
         });
@@ -37,8 +38,8 @@ describe('Users middleware', () => {
         it('if the user is not already signed in, ' +
             'creates a new user id and stores it in a cookie', () => {
             // Given
-            //request.cookies.userId = undefined;
-            request.cookie('userId', undefined);
+            request.cookies.userId = undefined;
+            //request.cookie('userId', undefined);
             response = { cookie: sinon.spy() };
             // When
             middleware(request, response, () => {});
